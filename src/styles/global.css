@@ -63,11 +63,24 @@ h2 { font-size: clamp(48px,5.5vw,76px); line-height: .98; margin-bottom: 34px; }
 .services-lead { align-self: end; margin-bottom: 3px; }
 .services-list { border-top: 1px solid var(--line); margin-top: 92px; }
 .service-card { align-items: center; border-bottom: 1px solid var(--line); display: grid; gap: 40px; grid-template-columns: 60px 1fr 45px; min-height: 104px; transition: padding .3s ease,background .3s ease; }
+.service-card { appearance: none; border-left: 0; border-right: 0; border-top: 0; color: inherit; cursor: pointer; font: inherit; text-align: left; width: 100%; }
 .service-card:hover { background: rgba(255,255,255,.28); padding: 0 18px; }
 .service-number { color: var(--brand); font-family: 'DM Mono',monospace; font-size: 10px; }
-.service-card h3 { font-family: 'Playfair Display',serif; font-size: 26px; font-weight: 500; letter-spacing: -.02em; margin: 0 0 7px; }
-.service-card p { color: var(--muted); font-size: 12px; margin: 0; }
+.service-card-content { display: flex; flex-direction: column; gap: 7px; }
+.service-card-content strong { font-family: 'Playfair Display',serif; font-size: 26px; font-weight: 500; letter-spacing: -.02em; }
+.service-card-content span { color: var(--muted); font-size: 12px; }
 .service-arrow { color: var(--brand); font-size: 22px; text-align: right; }
+.service-modal-backdrop { align-items: center; background: rgba(52,35,33,.68); display: flex; inset: 0; justify-content: center; padding: 24px; position: fixed; z-index: 20; }
+.service-modal { background: var(--cream); display: grid; grid-template-columns: minmax(240px,.85fr) 1fr; max-height: min(680px,90vh); max-width: 880px; overflow: auto; position: relative; width: 100%; }
+.modal-image-placeholder { align-items: center; background: var(--warm); color: var(--brand); display: flex; flex-direction: column; justify-content: center; min-height: 410px; padding: 30px; text-align: center; }
+.service-modal-image { display: block; height: 100%; max-height: 520px; object-fit: cover; width: 100%; }
+.modal-image-placeholder span { font-family: 'Playfair Display',serif; font-size: 28px; }
+.modal-image-placeholder small { color: var(--muted); font-family: 'DM Mono',monospace; font-size: 9px; letter-spacing: .06em; margin-top: 12px; max-width: 170px; text-transform: uppercase; }
+.modal-content { align-self: center; padding: 65px 55px; }
+.modal-content h2 { font-size: clamp(42px,5vw,68px); margin-bottom: 24px; }
+.modal-content>p:not(.eyebrow) { color: var(--muted); font-size: 14px; line-height: 1.8; margin-bottom: 32px; max-width: 390px; }
+.modal-close { background: var(--cream); border: 0; color: var(--ink); cursor: pointer; font-size: 28px; line-height: 1; padding: 8px 12px; position: absolute; right: 12px; top: 12px; z-index: 1; }
+.modal-close:hover { color: var(--brand); }
 .statement-section { align-items: center; display: flex; flex-direction: column; padding: 165px 20px; text-align: center; }
 .statement-mark { color: var(--gold); font-family: 'Playfair Display',serif; font-size: 73px; height: 45px; }
 .statement-section p { font-family: 'Playfair Display',serif; font-size: clamp(35px,4.3vw,59px); letter-spacing: -.04em; line-height: 1.05; margin: 35px 0 28px; }
@@ -81,10 +94,19 @@ h2 { font-size: clamp(48px,5.5vw,76px); line-height: .98; margin-bottom: 34px; }
 .contact-details span { color: #735f59; font-family: 'DM Mono',monospace; font-size: 9px; letter-spacing: .08em; text-transform: uppercase; }
 .contact-details strong { color: var(--ink); font-family: 'DM Sans',sans-serif; font-size: 14px; font-weight: 500; line-height: 1.55; }
 .contact-details a strong { text-decoration: underline; text-decoration-color: rgba(41,51,49,.3); text-underline-offset: 4px; }
+.contact-details .contact-action { background: rgba(255,255,255,.42); border: 1px solid rgba(52,35,33,.2); border-radius: 3px; gap: 5px; padding: 15px 17px; transition: background .25s ease, border-color .25s ease, transform .25s ease; }
+.contact-details .contact-action:hover { background: #fff8f1; border-color: var(--brand); transform: translateY(-2px); }
+.contact-details .contact-action strong { text-decoration: none; }
+.contact-action small { align-items: center; color: var(--brand); display: flex; font-family: 'DM Mono',monospace; font-size: 9px; gap: 4px; letter-spacing: .05em; margin-top: 4px; text-transform: uppercase; }
+.contact-action small span { color: inherit; font-size: 15px; line-height: 0; }
 .site-footer { align-items: center; background: #342321; color: #fff8f1; display: flex; justify-content: space-between; margin: 0 auto; max-width: none; padding: 35px 6vw; }
 .site-footer .brand-name { color: #fff8f1; }
 .site-footer .brand-name small { color: rgba(255,248,241,.65); }
 .site-footer>span { color: rgba(255,248,241,.68); font-family: 'DM Mono',monospace; font-size: 8px; letter-spacing: .07em; text-transform: uppercase; }
+.social-links { align-items: center; display: flex; gap: 14px; }
+.social-links a { align-items: center; border: 1px solid rgba(255,248,241,.35); border-radius: 50%; color: #fff8f1; display: inline-flex; height: 34px; justify-content: center; transition: background .25s ease, border-color .25s ease, transform .25s ease; width: 34px; }
+.social-links a:hover { background: var(--brand); border-color: var(--brand); transform: translateY(-2px); }
+.social-links svg { height: 17px; width: 17px; }
 @media (max-width: 800px) {
   .site-header { padding: 22px 6vw; }
   .main-nav { display: none; }
@@ -102,8 +124,11 @@ h2 { font-size: clamp(48px,5.5vw,76px); line-height: .98; margin-bottom: 34px; }
   .services-lead { margin-top: 30px; }
   .services-list { margin-top: 55px; }
   .service-card { gap: 15px; grid-template-columns: 34px 1fr 25px; min-height: 125px; }
-  .service-card h3 { font-size: 22px; }
-  .service-card p { font-size: 11px; line-height: 1.5; max-width: 250px; }
+  .service-card-content strong { font-size: 22px; }
+  .service-card-content span { font-size: 11px; line-height: 1.5; max-width: 250px; }
+  .service-modal { display: block; max-height: 90vh; }
+  .modal-image-placeholder { min-height: 220px; }
+  .modal-content { padding: 40px 28px 35px; }
   .statement-section { padding: 105px 25px; }
   .contact-section { padding-bottom: 105px; }
   .contact-section>div:last-child { margin-top: 55px; }
